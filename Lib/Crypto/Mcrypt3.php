@@ -12,18 +12,17 @@
  * @since         3.0.0
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-namespace Cake\Utility\Crypto;
 
 /**
- * Mcrypt implementation of crypto features for Cake\Utility\Security
+ * Mcrypt implementation of crypto features for Security3.Lib/Security3
  *
  * This class is not intended to be used directly and should only
- * be used in the context of Cake\Utility\Security.
+ * be used in the context of Security3.Lib/Security3.
  *
- * @deprecated 3.3.0 It is recommended to use {@see Cake\Utility\Crypto\OpenSsl} instead.
+ * @deprecated 3.3.0 It is recommended to use {@see Security3.Lib/Crypto/OpenSsl3} instead.
  * @internal
  */
-class Mcrypt
+class Mcrypt3
 {
 
     /**

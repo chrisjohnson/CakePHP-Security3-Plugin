@@ -12,22 +12,19 @@
  * @since         3.0.0
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-namespace Cake\Utility\Crypto;
-
-use LogicException;
 
 /**
- * OpenSSL implementation of crypto features for Cake\Utility\Security
+ * OpenSSL implementation of crypto features for Security3.Lib/Security3
  *
  * OpenSSL should be favored over mcrypt as it is actively maintained and
  * more widely available.
  *
  * This class is not intended to be used directly and should only
- * be used in the context of Cake\Utility\Security.
+ * be used in the context of Security3.Lib/Security3.
  *
  * @internal
  */
-class OpenSsl
+class OpenSsl3
 {
 
     /**
@@ -83,6 +80,10 @@ class OpenSsl
         $iv = mb_substr($cipher, 0, $ivSize, '8bit');
 
         $cipher = mb_substr($cipher, $ivSize, null, '8bit');
+		debug(base64_encode($cipher));
+		debug($key);
+		debug($method);
+		debug($iv);
 
         return openssl_decrypt($cipher, $method, $key, OPENSSL_RAW_DATA, $iv);
     }

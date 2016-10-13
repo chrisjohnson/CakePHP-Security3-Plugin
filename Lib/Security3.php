@@ -12,16 +12,13 @@
  * @since         0.10.0
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-namespace Cake\Utility;
-
-use Cake\Utility\Crypto\Mcrypt;
-use Cake\Utility\Crypto\OpenSsl;
-use InvalidArgumentException;
+App::uses('Mcrypt3', 'Security3.Lib/Crypto');
+App::uses('OpenSsl3', 'Security3.Lib/Crypto');
 
 /**
  * Security Library contains utility methods related to security
  */
-class Security
+class Security3
 {
 
     /**
@@ -81,7 +78,7 @@ class Security
      *
      * @param string $hash Method to use (sha1/sha256/md5 etc.)
      * @return void
-     * @see \Cake\Utility\Security::hash()
+     * @see Security3::hash()
      */
     public static function setHash($hash)
     {
@@ -130,7 +127,7 @@ class Security
      *
      * @param int $length The number of bytes you want.
      * @return string Random bytes in binary.
-     * @see \Cake\Utility\Security::randomBytes()
+     * @see Security3::randomBytes()
      */
     public static function insecureRandomBytes($length)
     {
@@ -160,9 +157,9 @@ class Security
     {
         if ($instance === null && static::$_instance === null) {
             if (extension_loaded('openssl')) {
-                $instance = new OpenSsl();
+                $instance = new OpenSsl3();
             } elseif (extension_loaded('mcrypt')) {
-                $instance = new Mcrypt();
+                $instance = new Mcrypt3();
             }
         }
         if ($instance) {
@@ -222,6 +219,7 @@ class Security
         if ($hmacSalt === null) {
             $hmacSalt = static::$_salt;
         }
+		debug($hmacSalt);
         // Generate the encryption and hmac key.
         $key = mb_substr(hash('sha256', $key . $hmacSalt), 0, 32, '8bit');
 
