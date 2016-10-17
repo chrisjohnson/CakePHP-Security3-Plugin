@@ -20,18 +20,23 @@ CakePlugin::load('Security3');
 App::uses('Security3', 'Security3.Lib');
 ```
 
+In `Config/core.php`:
+
+```
+Configure::write('Security.salt', 'some very long and varied salt value');
+```
+
 In your code:
 
 ```
-Security3::salt('asuhd34768ngsfg34uhgfusglja9u8fyher78th3tfgj'); // Specify global salt
 // Assuming key is stored somewhere it can be re-used for
 // decryption later.
 $key = 'wt1U5MACWJFTXGenFoZoiLwQGrLgdbHA';
+
 $cipher = Security3::encrypt($value, $key);
 
 ...
 
-$key = 'wt1U5MACWJFTXGenFoZoiLwQGrLgdbHA';
 $result = Security3::decrypt($cipher, $key);
 ```
 
