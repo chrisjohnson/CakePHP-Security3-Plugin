@@ -37,4 +37,4 @@ $result = Security3::decrypt($cipher, $key);
 
 ## More Help
 
-This is just the Security Utility from 3.x so [http://book.cakephp.org/3.0/en/core-libraries/security.html](their documentation) should be accurate
+This is just the Security Utility from 3.x so [their documentation](http://book.cakephp.org/3.0/en/core-libraries/security.html) should be accurate
