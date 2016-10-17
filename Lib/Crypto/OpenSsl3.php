@@ -80,10 +80,6 @@ class OpenSsl3
         $iv = mb_substr($cipher, 0, $ivSize, '8bit');
 
         $cipher = mb_substr($cipher, $ivSize, null, '8bit');
-		debug(base64_encode($cipher));
-		debug($key);
-		debug($method);
-		debug($iv);
 
         return openssl_decrypt($cipher, $method, $key, OPENSSL_RAW_DATA, $iv);
     }

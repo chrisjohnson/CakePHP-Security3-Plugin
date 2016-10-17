@@ -219,7 +219,6 @@ class Security3
         if ($hmacSalt === null) {
             $hmacSalt = static::$_salt;
         }
-		debug($hmacSalt);
         // Generate the encryption and hmac key.
         $key = mb_substr(hash('sha256', $key . $hmacSalt), 0, 32, '8bit');
 
